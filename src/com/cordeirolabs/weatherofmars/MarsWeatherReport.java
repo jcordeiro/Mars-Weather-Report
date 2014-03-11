@@ -46,16 +46,18 @@ public class MarsWeatherReport {
 	public static MarsWeatherReport fromJson(JSONObject jsonObject) {
 		MarsWeatherReport report = new MarsWeatherReport();
 		try {
+			
+			JSONObject json = jsonObject.getJSONObject("report");
 
 			// Parse the json results into the MarsWeatherReport's fields
-			report.earthDate = jsonObject.getString("terrestrial_date");
-			report.minCelsiusTemp = jsonObject.getInt("min_temp");
-			report.minFahrenheitTemp = jsonObject.getInt("min_temp_fahrenheit");
-			report.maxCelsiusTemp = jsonObject.getInt("max_temp");
-			report.maxFahrenheitTemp = jsonObject.getInt("max_temp_fahrenheit");
-			report.weatherStatus = jsonObject.getString("atmo_opacity");
-			report.sunrise = jsonObject.getString("sunrise");
-			report.sunset = jsonObject.getString("sunset");
+			report.earthDate = json.getString("terrestrial_date");
+			report.minCelsiusTemp = json.getInt("min_temp");
+			report.minFahrenheitTemp = json.getInt("min_temp_fahrenheit");
+			report.maxCelsiusTemp = json.getInt("max_temp");
+			report.maxFahrenheitTemp = json.getInt("max_temp_fahrenheit");
+			report.weatherStatus = json.getString("atmo_opacity");
+			report.sunrise = json.getString("sunrise");
+			report.sunset = json.getString("sunset");
 
 		} catch (JSONException e) {
 			e.printStackTrace();

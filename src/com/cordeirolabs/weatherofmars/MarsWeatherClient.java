@@ -1,5 +1,7 @@
 package com.cordeirolabs.weatherofmars;
 
+import android.util.Log;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -8,7 +10,12 @@ public class MarsWeatherClient {
 	private AsyncHttpClient client;
 	
 	public MarsWeatherClient() {
+		
+		Log.d("MARS!", "CLIENT ABOUT TO BE CREATED!");
+		
 		this.client = new AsyncHttpClient();
+		
+		Log.d("MARS!", "CLIENT JUST CREATED!");
 	}
 	
 	 private String getApiUrl(String relativeUrl) {
@@ -19,7 +26,9 @@ public class MarsWeatherClient {
 	 // http://marsweather.ingenology.com/v1/latest/
 	public void getLatestWeatherReport(JsonHttpResponseHandler handler) {
 		String url = getApiUrl("latest");
+		Log.d("MARS", "ABOUT TO GET!");
 		client.get(url, handler);
+		Log.d("MARS", "DID GET!");
 	}
 
 }
