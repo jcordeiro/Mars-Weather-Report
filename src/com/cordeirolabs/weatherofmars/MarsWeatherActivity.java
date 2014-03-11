@@ -1,10 +1,12 @@
 package com.cordeirolabs.weatherofmars;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
+
+import de.neofonie.mobile.app.android.widget.crouton.Crouton;
+import de.neofonie.mobile.app.android.widget.crouton.Style;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -62,8 +64,10 @@ public class MarsWeatherActivity extends Activity {
 
 			@Override
 			public void onFailure ( Throwable e, String errorResponse ) {
-				String msg = "String *" + e.toString() + "*" + errorResponse;
-				new AlertDialog.Builder(MarsWeatherActivity.this).setMessage(msg).setCancelable(false).setTitle("3").setPositiveButton("OK", null).create().show();
+
+				// Display an alert crouton
+				Crouton.makeText(MarsWeatherActivity.this, R.string.error, Style.ALERT).show();
+
 			}
 
 		});
@@ -101,6 +105,16 @@ public class MarsWeatherActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.mars_weather, menu);
 		return true;
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		
+		
+		Crouton.cancelAllCroutons();
+		
+		
 	}
 
 }

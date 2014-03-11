@@ -9,5 +9,6 @@
     <string name="weather_status">Weather status:</string>
     <string name="sunrise_at">The sun rose at:</string>
     <string name="sunset_at">The sun set at:</string>
+    <string name="error">There was a problem getting the weather data</string>
 
 </resources>
