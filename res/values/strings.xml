@@ -11,4 +11,14 @@
     <string name="sunset_at">The sun set at:</string>
     <string name="error">There was a problem getting the weather data</string>
 
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+
+    <style name="text_shadow">
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1.5</item>
+        <item name="android:shadowDy">1.5</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
 </resources>

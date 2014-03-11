@@ -46,7 +46,7 @@ public class MarsWeatherReport {
 	public static MarsWeatherReport fromJson(JSONObject jsonObject) {
 		MarsWeatherReport report = new MarsWeatherReport();
 		try {
-			
+
 			JSONObject json = jsonObject.getJSONObject("report");
 
 			// Parse the json results into the MarsWeatherReport's fields

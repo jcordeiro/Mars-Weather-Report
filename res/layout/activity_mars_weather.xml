@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mars_atmosphere"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -11,34 +12,41 @@
 
     <TextView
         android:id="@+id/txtLatestWeather"
+        style="@style/text_shadow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:gravity="center"
         android:text="@string/latest_weather"
+        android:textColor="@color/color_white"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/txtCurrentTemperature"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtLatestWeather"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="23 C"
+        android:textColor="@color/color_white"
         android:textSize="64sp" />
 
     <TextView
         android:id="@+id/txtHighTempText"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtCurrentTemperature"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="@string/high_temp"
+        android:textColor="@color/color_white"
         android:textSize="22sp" />
 
     <TextView
         android:id="@+id/txtHighTempValue"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -47,19 +55,23 @@
         android:layout_toRightOf="@id/txtHighTempText"
         android:gravity="right"
         android:text="-12 C"
+        android:textColor="@color/color_white"
         android:textSize="22sp" />
 
     <TextView
         android:id="@+id/txtLowTempText"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtHighTempText"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="@string/low_temp"
+        android:textColor="@color/color_white"
         android:textSize="22sp" />
 
     <TextView
         android:id="@+id/txtLowTempValue"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -68,19 +80,23 @@
         android:layout_toRightOf="@id/txtHighTempText"
         android:gravity="right"
         android:text="-123 C"
+        android:textColor="@color/color_white"
         android:textSize="22sp" />
 
     <TextView
         android:id="@+id/txtWeatherStatusText"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtLowTempText"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="@string/weather_status"
+        android:textColor="@color/color_white"
         android:textSize="22sp" />
 
     <TextView
         android:id="@+id/txtWeatherStatusValue"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -89,19 +105,23 @@
         android:layout_toRightOf="@id/txtWeatherStatusText"
         android:gravity="right"
         android:text="Sunny"
+        android:textColor="@color/color_white"
         android:textSize="22sp" />
-    
+
     <TextView
         android:id="@+id/txtSunriseText"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtWeatherStatusText"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="@string/sunrise_at"
+        android:textColor="@color/color_white"
         android:textSize="22sp" />
 
     <TextView
         android:id="@+id/txtSunriseValue"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -110,19 +130,23 @@
         android:layout_toRightOf="@id/txtSunriseText"
         android:gravity="right"
         android:text="T11:50:00Z"
+        android:textColor="@color/color_white"
         android:textSize="22sp" />
-    
-     <TextView
+
+    <TextView
         android:id="@+id/txtSunsetText"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtSunriseValue"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/sunrise_at"
+        android:text="@string/sunset_at"
+        android:textColor="@color/color_white"
         android:textSize="22sp" />
 
     <TextView
         android:id="@+id/txtSunsetValue"
+        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -131,6 +155,7 @@
         android:layout_toRightOf="@id/txtSunsetText"
         android:gravity="right"
         android:text="T23:33:00Z"
+        android:textColor="@color/color_white"
         android:textSize="22sp" />
 
 </RelativeLayout>
