@@ -1,5 +1,7 @@
 package com.cordeirolabs.weatherofmars;
 
+import java.util.TimeZone;
+
 import org.json.JSONObject;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -9,24 +11,26 @@ import de.neofonie.mobile.app.android.widget.crouton.Style;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
-//TODO: Adjust layout to work on all screen sizes (widen vertical space between TextViews)
+//TODO: Adjust layout to work on all screen sizes (multiple dimens.xml files?)
 //TODO: Add backwards compatible action bar support
 //TODO: Get rid of default text in TextViews
-//TODO: Add loading spinner animations
 //TODO: Fix format for sunrise & sunset time (Convert to Earth time)
 //TODO: Add refresh functionality & edit Crouton to alert user about refresh (by swiping down?)
 //TODO: Add SettingsActivity (Celsius vs. Fahrenheit) (Don't forget ActionBar Up) (UIListView?)
 //TODO: Add about dialog. Possibly about and link to site in settings?
 //TODO: Possible way to check for updates on API? Push Notifications? (Later versions)
-//TODO: TEST ON OTHER DEVICES!!
+//TODO: TEST ON OTHER DEVICES!! LOW CONNECTIVITY (emulator?)
 //TODO: Search for what next
 //TODO: Finalize image sizes for backgrounds
+//TODO: SHRINK IMAGES SIZES - PNGCRUSH!!!!!!
+//TODO: Add analytics
 //TODO: Look for Android checklist before Google Play submission
-//TODO: Done? Begin to explore the graphical view
+//TODO: Done (Begin to explore the graphical view?) (Scrolls through Sols?)-118
 
 
 public class MarsWeatherActivity extends Activity {
@@ -91,8 +95,19 @@ public class MarsWeatherActivity extends Activity {
 		txtWeatherStatusValue.setText(report.getWeatherStatus());
 		txtSunriseValue.setText(report.getSunrise());
 		txtSunsetValue.setText(report.getSunset());
+		
+		TimeZone tz = TimeZone.getDefault();
+		Log.d("TIMEZONE", tz.getDisplayName(false, TimeZone.SHORT));
+		Log.d("TIMEZONE", tz.getDisplayName(false, TimeZone.LONG));
+		
 	}
+	
+	// Convert the times in the MarsWeathReport to the user's local timezone
+	public void convertMarsTimeToLocalTime() {
 
+		TimeZone tz = TimeZone.getDefault();
+		tz.getDisplayName(false, TimeZone.SHORT);
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

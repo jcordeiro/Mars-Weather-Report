@@ -56,8 +56,8 @@ public class MarsWeatherReport {
 			report.maxCelsiusTemp = json.getInt("max_temp");
 			report.maxFahrenheitTemp = json.getInt("max_temp_fahrenheit");
 			report.weatherStatus = json.getString("atmo_opacity");
-			report.sunrise = json.getString("sunrise");
-			report.sunset = json.getString("sunset");
+			report.sunrise = parseTime(json.getString("sunrise"));
+			report.sunset = parseTime(json.getString("sunset"));
 
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -65,6 +65,15 @@ public class MarsWeatherReport {
 		}
 		// Return new MarsWeatherReport
 		return report;
+	}
+	
+	// The json call for the mars weather data returns time in a format like this "2014-03-07T11:30:00Z"
+	// This method splits the time String by the "T" and returns just the actual time
+	// The trailing "z" and seconds are removed and "UTC" (Coordinated Universal Time) is appended
+	// E.g 2014-03-07T11:30:00Z -> 11:30:00 UTC
+	public static String parseTime(String time) {	
+		String[] parts = time.split("T");
+		return parts[1].substring(0, parts[1].length() - 4) + " UTC";
 	}
 
 	// Parses through an array of json weather reports and builds new MarsWeatherReport objects
