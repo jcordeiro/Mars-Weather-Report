@@ -17,8 +17,6 @@ import android.view.View;
 import android.widget.TextView;
 
 //TODO: Adjust layout to work on all screen sizes (multiple dimens.xml files?)
-//TODO: Add backwards compatible action bar support
-//TODO: Get rid of default text in TextViews
 //TODO: Fix format for sunrise & sunset time (Convert to Earth time)
 //TODO: Add refresh functionality & edit Crouton to alert user about refresh (by swiping down?)
 //TODO: Add SettingsActivity (Celsius vs. Fahrenheit) (Don't forget ActionBar Up) (UIListView?)
@@ -29,6 +27,7 @@ import android.widget.TextView;
 //TODO: Finalize image sizes for backgrounds
 //TODO: SHRINK IMAGES SIZES - PNGCRUSH!!!!!!
 //TODO: Add analytics
+//TODO: Remove debug logs
 //TODO: Look for Android checklist before Google Play submission
 //TODO: Done (Begin to explore the graphical view?) (Scrolls through Sols?)-118
 
@@ -81,6 +80,8 @@ public class MarsWeatherActivity extends Activity {
 	// Update the UI with values from a MarsWeatherReport
 	public void updateWeatherView(MarsWeatherReport report) {
 		// Get references to the UI widgets
+		TextView txtLastUpdatedText = (TextView)findViewById(R.id.txtLastUpdatedText);
+//		TextView txtLastUpdatedValue = (TextView)findViewById(R.id.txtLastUpdatedValue);
 		TextView txtCurrentTemperature = (TextView)findViewById(R.id.txtCurrentTemperature);
 		TextView txtHighTempValue = (TextView)findViewById(R.id.txtHighTempValue);
 		TextView txtLowTempValue = (TextView)findViewById(R.id.txtLowTempValue);
@@ -89,6 +90,7 @@ public class MarsWeatherActivity extends Activity {
 		TextView txtSunsetValue = (TextView)findViewById(R.id.txtSunsetValue);
 
 		// Update the UI with the values from the MarsWeatherReport
+		txtLastUpdatedText.append(" " + report.getEarthDate());
 		txtCurrentTemperature.setText(report.getMaxCelsiusTemp() + CELSIUS);
 		txtHighTempValue.setText(report.getMaxCelsiusTemp() + CELSIUS);
 		txtLowTempValue.setText(report.getMinCelsiusTemp() + CELSIUS);
@@ -122,7 +124,7 @@ public class MarsWeatherActivity extends Activity {
 		findViewById(R.id.txtLatestWeather).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtCurrentTemperature).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtLastUpdatedText).setVisibility(View.VISIBLE);
-		findViewById(R.id.txtLastUpdatedValue).setVisibility(View.VISIBLE);
+//		findViewById(R.id.txtLastUpdatedValue).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtHighTempText).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtHighTempValue).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtLowTempText).setVisibility(View.VISIBLE);
