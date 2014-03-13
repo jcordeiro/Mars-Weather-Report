@@ -10,9 +10,9 @@ import de.neofonie.mobile.app.android.widget.crouton.Style;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
 
-//TODO: Properly resize background image
 //TODO: Adjust layout to work on all screen sizes (widen vertical space between TextViews)
 //TODO: Add backwards compatible action bar support
 //TODO: Get rid of default text in TextViews
@@ -24,6 +24,8 @@ import android.widget.TextView;
 //TODO: Possible way to check for updates on API? Push Notifications? (Later versions)
 //TODO: TEST ON OTHER DEVICES!!
 //TODO: Search for what next
+//TODO: Finalize image sizes for backgrounds
+//TODO: Look for Android checklist before Google Play submission
 //TODO: Done? Begin to explore the graphical view
 
 
@@ -47,6 +49,13 @@ public class MarsWeatherActivity extends Activity {
 			public void onSuccess(int code, JSONObject json) {
 				MarsWeatherReport latest = MarsWeatherReport.fromJson(json);
 				updateWeatherView(latest);
+				
+				// Hide the progressBar from the user
+				findViewById(R.id.progressBar).setVisibility(View.GONE);
+				
+				// Display all the UI widgets
+				loadInUI();
+
 			}
 
 			// Runs when the JSON request for the weather report fails
@@ -54,6 +63,13 @@ public class MarsWeatherActivity extends Activity {
 			public void onFailure ( Throwable e, String errorResponse ) {
 				// Display an alert crouton
 				Crouton.makeText(MarsWeatherActivity.this, R.string.error, Style.ALERT).show();
+				
+				// Hide the progressBar from the user
+				findViewById(R.id.progressBar).setVisibility(View.GONE);
+				
+				// Display retry button to the user
+				findViewById(R.id.btnRetry).setVisibility(View.VISIBLE);
+				
 			}
 		});
 	}
@@ -83,6 +99,26 @@ public class MarsWeatherActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.mars_weather, menu);
 		return true;
+	}
+
+	// Change the visibility of all the UI widget to visible from gone
+	public void loadInUI() {
+
+		findViewById(R.id.txtLatestWeather).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtCurrentTemperature).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtLastUpdatedText).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtLastUpdatedValue).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtHighTempText).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtHighTempValue).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtLowTempText).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtLowTempValue).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtWeatherStatusText).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtWeatherStatusValue).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtSunriseText).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtSunriseValue).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtSunsetText).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtSunsetValue).setVisibility(View.VISIBLE);
+
 	}
 
 	@Override

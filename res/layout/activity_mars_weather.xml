@@ -10,152 +10,207 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MarsWeatherActivity" >
 
-    <TextView
-        android:id="@+id/txtLatestWeather"
-        style="@style/text_shadow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:gravity="center"
-        android:text="@string/latest_weather"
-        android:textColor="@color/color_white"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/txtCurrentTemperature"
-        style="@style/text_shadow"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtLatestWeather"
         android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="23 C"
-        android:textColor="@color/color_white"
-        android:textSize="64sp" />
+        android:indeterminate="true" />
 
-    <TextView
-        android:id="@+id/txtHighTempText"
-        style="@style/text_shadow"
+    <Button
+        android:id="@+id/btnRetry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtCurrentTemperature"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/high_temp"
-        android:textColor="@color/color_white"
-        android:textSize="22sp" />
+        android:layout_centerInParent="true"
+        android:layout_weight="0.5"
+        android:text="@string/retry"
+        android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/txtHighTempValue"
-        style="@style/text_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/txtCurrentTemperature"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_toRightOf="@id/txtHighTempText"
-        android:gravity="right"
-        android:text="-12 C"
-        android:textColor="@color/color_white"
-        android:textSize="22sp" />
+        <TextView
+            android:id="@+id/txtLatestWeather"
+            style="@style/text_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:text="@string/latest_weather"
+            android:textColor="@color/color_white"
+            android:textSize="30sp"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/txtLowTempText"
-        style="@style/text_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtHighTempText"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/low_temp"
-        android:textColor="@color/color_white"
-        android:textSize="22sp" />
+        <TextView
+            android:id="@+id/txtCurrentTemperature"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtLatestWeather"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="23 C"
+            android:textColor="@color/color_white"
+            android:textSize="64sp"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/txtLowTempValue"
-        style="@style/text_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/txtHighTempValue"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_toRightOf="@id/txtHighTempText"
-        android:gravity="right"
-        android:text="-123 C"
-        android:textColor="@color/color_white"
-        android:textSize="22sp" />
+        <TextView
+            android:id="@+id/txtLastUpdatedText"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtCurrentTemperature"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/last_updated_at"
+            android:textColor="@color/color_white"
+            android:textSize="14sp"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/txtWeatherStatusText"
-        style="@style/text_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtLowTempText"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/weather_status"
-        android:textColor="@color/color_white"
-        android:textSize="22sp" />
+        <TextView
+            android:id="@+id/txtLastUpdatedValue"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtCurrentTemperature"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_toLeftOf="@id/txtLastUpdatedText"
+            android:text="@string/last_updated_at"
+            android:textColor="@color/color_white"
+            android:textSize="14sp"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/txtWeatherStatusValue"
-        style="@style/text_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/txtLowTempValue"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_toRightOf="@id/txtWeatherStatusText"
-        android:gravity="right"
-        android:text="Sunny"
-        android:textColor="@color/color_white"
-        android:textSize="22sp" />
+        <TextView
+            android:id="@+id/txtHighTempText"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtLastUpdatedText"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/high_temp"
+            android:textColor="@color/color_white"
+            android:textSize="22sp"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/txtSunriseText"
-        style="@style/text_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtWeatherStatusText"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/sunrise_at"
-        android:textColor="@color/color_white"
-        android:textSize="22sp" />
+        <TextView
+            android:id="@+id/txtHighTempValue"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/txtLastUpdatedText"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_toRightOf="@id/txtHighTempText"
+            android:gravity="right"
+            android:text="-12 C"
+            android:textColor="@color/color_white"
+            android:textSize="22sp"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/txtSunriseValue"
-        style="@style/text_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/txtWeatherStatusValue"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_toRightOf="@id/txtSunriseText"
-        android:gravity="right"
-        android:text="T11:50:00Z"
-        android:textColor="@color/color_white"
-        android:textSize="22sp" />
+        <TextView
+            android:id="@+id/txtLowTempText"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtHighTempText"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/low_temp"
+            android:textColor="@color/color_white"
+            android:textSize="22sp"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/txtSunsetText"
-        style="@style/text_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtSunriseValue"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/sunset_at"
-        android:textColor="@color/color_white"
-        android:textSize="22sp" />
+        <TextView
+            android:id="@+id/txtLowTempValue"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/txtHighTempValue"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_toRightOf="@id/txtHighTempText"
+            android:gravity="right"
+            android:text="-123 C"
+            android:textColor="@color/color_white"
+            android:textSize="22sp"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/txtSunsetValue"
-        style="@style/text_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/txtSunriseValue"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_toRightOf="@id/txtSunsetText"
-        android:gravity="right"
-        android:text="T23:33:00Z"
-        android:textColor="@color/color_white"
-        android:textSize="22sp" />
+        <TextView
+            android:id="@+id/txtWeatherStatusText"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtLowTempText"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/weather_status"
+            android:textColor="@color/color_white"
+            android:textSize="22sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtWeatherStatusValue"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/txtLowTempValue"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_toRightOf="@id/txtWeatherStatusText"
+            android:gravity="right"
+            android:text="Sunny"
+            android:textColor="@color/color_white"
+            android:textSize="22sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtSunriseText"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtWeatherStatusText"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/sunrise_at"
+            android:textColor="@color/color_white"
+            android:textSize="22sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtSunriseValue"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/txtWeatherStatusValue"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_toRightOf="@id/txtSunriseText"
+            android:gravity="right"
+            android:text="T11:50:00Z"
+            android:textColor="@color/color_white"
+            android:textSize="22sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtSunsetText"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtSunriseValue"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/sunset_at"
+            android:textColor="@color/color_white"
+            android:textSize="22sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtSunsetValue"
+            style="@style/text_shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/txtSunriseValue"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_toRightOf="@id/txtSunsetText"
+            android:gravity="right"
+            android:text="T23:33:00Z"
+            android:textColor="@color/color_white"
+            android:textSize="22sp"
+            android:visibility="gone" />
 
 </RelativeLayout>
