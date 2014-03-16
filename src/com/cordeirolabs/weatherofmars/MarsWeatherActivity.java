@@ -14,6 +14,7 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 //TODO: Adjust layout to work on all screen sizes (multiple dimens.xml files?)
@@ -43,6 +44,48 @@ public class MarsWeatherActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mars_weather);
+		
+		Button btnRetry = (Button)findViewById(R.id.btnRetry);
+		fetchWeatherReport(btnRetry);
+
+		//		client = new MarsWeatherClient();
+		//
+		//		client.getLatestWeatherReport(new JsonHttpResponseHandler() {
+		//
+		//			@Override
+		//			public void onSuccess(int code, JSONObject json) {
+		//				MarsWeatherReport latest = MarsWeatherReport.fromJson(json);
+		//				updateWeatherView(latest);
+		//				
+		//				// Hide the progressBar from the user
+		//				findViewById(R.id.progressBar).setVisibility(View.GONE);
+		//				
+		//				// Display all the UI widgets
+		//				loadInUI();
+		//
+		//			}
+		//
+		//			// Runs when the JSON request for the weather report fails
+		//			@Override
+		//			public void onFailure ( Throwable e, String errorResponse ) {
+		//				// Display an alert crouton
+		//				Crouton.makeText(MarsWeatherActivity.this, R.string.error, Style.ALERT).show();
+		//				
+		//				// Hide the progressBar from the user
+		//				findViewById(R.id.progressBar).setVisibility(View.GONE);
+		//				
+		//				// Display retry button to the user
+		//				findViewById(R.id.btnRetry).setVisibility(View.VISIBLE);
+		//				
+		//			}
+		//		});
+	}
+
+	// Attempts to get the latest mars weather reading
+	// On success the UI is loaded in with the weather info displayed to the user
+	// On failure a Crouton is displayed telling the user there was an error
+	// and a retry button is displayed. This function is also run onClick of btnRetry
+	public void fetchWeatherReport(View view) {
 
 		client = new MarsWeatherClient();
 
@@ -52,10 +95,13 @@ public class MarsWeatherActivity extends Activity {
 			public void onSuccess(int code, JSONObject json) {
 				MarsWeatherReport latest = MarsWeatherReport.fromJson(json);
 				updateWeatherView(latest);
-				
+
 				// Hide the progressBar from the user
 				findViewById(R.id.progressBar).setVisibility(View.GONE);
 				
+				//Hide the retry button from the user
+				findViewById(R.id.btnRetry).setVisibility(View.GONE);
+
 				// Display all the UI widgets
 				loadInUI();
 
@@ -66,13 +112,13 @@ public class MarsWeatherActivity extends Activity {
 			public void onFailure ( Throwable e, String errorResponse ) {
 				// Display an alert crouton
 				Crouton.makeText(MarsWeatherActivity.this, R.string.error, Style.ALERT).show();
-				
+
 				// Hide the progressBar from the user
 				findViewById(R.id.progressBar).setVisibility(View.GONE);
-				
+
 				// Display retry button to the user
 				findViewById(R.id.btnRetry).setVisibility(View.VISIBLE);
-				
+
 			}
 		});
 	}
@@ -81,7 +127,7 @@ public class MarsWeatherActivity extends Activity {
 	public void updateWeatherView(MarsWeatherReport report) {
 		// Get references to the UI widgets
 		TextView txtLastUpdatedText = (TextView)findViewById(R.id.txtLastUpdatedText);
-//		TextView txtLastUpdatedValue = (TextView)findViewById(R.id.txtLastUpdatedValue);
+		//		TextView txtLastUpdatedValue = (TextView)findViewById(R.id.txtLastUpdatedValue);
 		TextView txtCurrentTemperature = (TextView)findViewById(R.id.txtCurrentTemperature);
 		TextView txtHighTempValue = (TextView)findViewById(R.id.txtHighTempValue);
 		TextView txtLowTempValue = (TextView)findViewById(R.id.txtLowTempValue);
@@ -97,13 +143,9 @@ public class MarsWeatherActivity extends Activity {
 		txtWeatherStatusValue.setText(report.getWeatherStatus());
 		txtSunriseValue.setText(report.getSunrise());
 		txtSunsetValue.setText(report.getSunset());
-		
-		TimeZone tz = TimeZone.getDefault();
-		Log.d("TIMEZONE", tz.getDisplayName(false, TimeZone.SHORT));
-		Log.d("TIMEZONE", tz.getDisplayName(false, TimeZone.LONG));
-		
+
 	}
-	
+
 	// Convert the times in the MarsWeathReport to the user's local timezone
 	public void convertMarsTimeToLocalTime() {
 
@@ -124,7 +166,7 @@ public class MarsWeatherActivity extends Activity {
 		findViewById(R.id.txtLatestWeather).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtCurrentTemperature).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtLastUpdatedText).setVisibility(View.VISIBLE);
-//		findViewById(R.id.txtLastUpdatedValue).setVisibility(View.VISIBLE);
+		//		findViewById(R.id.txtLastUpdatedValue).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtHighTempText).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtHighTempValue).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtLowTempText).setVisibility(View.VISIBLE);
