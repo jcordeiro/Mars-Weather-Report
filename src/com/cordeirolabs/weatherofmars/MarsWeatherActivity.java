@@ -11,14 +11,16 @@ import de.neofonie.mobile.app.android.widget.crouton.Style;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.res.Configuration;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //TODO: Adjust layout to work on all screen sizes (multiple dimens.xml files?)
-//TODO: Fix format for sunrise & sunset time (Convert to Earth time)
 //TODO: Add refresh functionality & edit Crouton to alert user about refresh (by swiping down?)
 //TODO: Add SettingsActivity (Celsius vs. Fahrenheit) (Don't forget ActionBar Up) (UIListView?)
 //TODO: Add about dialog. Possibly about and link to site in settings?
@@ -36,7 +38,6 @@ import android.widget.TextView;
 public class MarsWeatherActivity extends Activity {
 	private MarsWeatherClient client;
 
-	final String DEGREE  = "\u00b0";
 	final String CELSIUS = "\u2103";
 	final String FAHRENHEIT = "\u2109";
 
@@ -45,40 +46,10 @@ public class MarsWeatherActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mars_weather);
 		
+		// Get a reference to the retry button and
+		// pass it in as the view to fetch a weather report
 		Button btnRetry = (Button)findViewById(R.id.btnRetry);
 		fetchWeatherReport(btnRetry);
-
-		//		client = new MarsWeatherClient();
-		//
-		//		client.getLatestWeatherReport(new JsonHttpResponseHandler() {
-		//
-		//			@Override
-		//			public void onSuccess(int code, JSONObject json) {
-		//				MarsWeatherReport latest = MarsWeatherReport.fromJson(json);
-		//				updateWeatherView(latest);
-		//				
-		//				// Hide the progressBar from the user
-		//				findViewById(R.id.progressBar).setVisibility(View.GONE);
-		//				
-		//				// Display all the UI widgets
-		//				loadInUI();
-		//
-		//			}
-		//
-		//			// Runs when the JSON request for the weather report fails
-		//			@Override
-		//			public void onFailure ( Throwable e, String errorResponse ) {
-		//				// Display an alert crouton
-		//				Crouton.makeText(MarsWeatherActivity.this, R.string.error, Style.ALERT).show();
-		//				
-		//				// Hide the progressBar from the user
-		//				findViewById(R.id.progressBar).setVisibility(View.GONE);
-		//				
-		//				// Display retry button to the user
-		//				findViewById(R.id.btnRetry).setVisibility(View.VISIBLE);
-		//				
-		//			}
-		//		});
 	}
 
 	// Attempts to get the latest mars weather reading
@@ -126,7 +97,7 @@ public class MarsWeatherActivity extends Activity {
 	// Update the UI with values from a MarsWeatherReport
 	public void updateWeatherView(MarsWeatherReport report) {
 		// Get references to the UI widgets
-		TextView txtLastUpdatedText = (TextView)findViewById(R.id.txtLastUpdatedText);
+		TextView txtLastUpdatedText = (TextView)findViewById(R.id.txtLastUpdated);
 		//		TextView txtLastUpdatedValue = (TextView)findViewById(R.id.txtLastUpdatedValue);
 		TextView txtCurrentTemperature = (TextView)findViewById(R.id.txtCurrentTemperature);
 		TextView txtHighTempValue = (TextView)findViewById(R.id.txtHighTempValue);
@@ -162,11 +133,9 @@ public class MarsWeatherActivity extends Activity {
 
 	// Change the visibility of all the UI widget to visible from gone
 	public void loadInUI() {
-
 		findViewById(R.id.txtLatestWeather).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtCurrentTemperature).setVisibility(View.VISIBLE);
-		findViewById(R.id.txtLastUpdatedText).setVisibility(View.VISIBLE);
-		//		findViewById(R.id.txtLastUpdatedValue).setVisibility(View.VISIBLE);
+		findViewById(R.id.txtLastUpdated).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtHighTempText).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtHighTempValue).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtLowTempText).setVisibility(View.VISIBLE);
@@ -177,7 +146,6 @@ public class MarsWeatherActivity extends Activity {
 		findViewById(R.id.txtSunriseValue).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtSunsetText).setVisibility(View.VISIBLE);
 		findViewById(R.id.txtSunsetValue).setVisibility(View.VISIBLE);
-
 	}
 
 	@Override

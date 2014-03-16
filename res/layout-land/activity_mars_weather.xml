@@ -30,26 +30,13 @@
     <TextView
         android:id="@+id/txtLatestWeather"
         style="@style/text_shadow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:gravity="center"
-        android:text="@string/latest_weather"
-        android:textColor="@color/color_white"
-        android:textSize="@dimen/large_text_size"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/txtCurrentTemperature"
-        style="@style/text_shadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtLatestWeather"
-        android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="23 C"
+        android:gravity="left"
+        android:text="@string/latest_weather"
         android:textColor="@color/color_white"
-        android:textSize="@dimen/huge_text_size"
+        android:textSize="@dimen/med_text_size"
         android:visibility="visible" />
 
     <TextView
@@ -199,5 +186,18 @@
         android:textSize="@dimen/med_text_size"
         android:visibility="visible" 
         />
+
+    <TextView
+        android:id="@+id/txtCurrentTemperature"
+        style="@style/text_shadow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtLatestWeather"
+        android:layout_alignBottom="@+id/txtLatestWeather"
+        android:layout_alignLeft="@+id/txtHighTempValue"
+        android:text="23 C"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/med_text_size"
+        android:visibility="visible" />
 
 </RelativeLayout>
