@@ -25,7 +25,7 @@
         android:layout_centerInParent="true"
         android:onClick="fetchWeatherReport"
         android:text="@string/retry"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtLatestWeather"
@@ -37,7 +37,7 @@
         android:text="@string/latest_weather"
         android:textColor="@color/color_white"
         android:textSize="@dimen/large_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtCurrentTemperature"
@@ -47,10 +47,9 @@
         android:layout_below="@id/txtLatestWeather"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="23 C"
         android:textColor="@color/color_white"
         android:textSize="@dimen/huge_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtLastUpdated"
@@ -63,7 +62,7 @@
         android:text="@string/last_updated_at"
         android:textColor="@color/color_white"
         android:textSize="@dimen/small_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtHighTempText"
@@ -75,7 +74,7 @@
         android:text="@string/high_temp"
         android:textColor="@color/color_white"
         android:textSize="@dimen/med_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtHighTempValue"
@@ -87,10 +86,9 @@
         android:layout_below="@id/txtLastUpdated"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:gravity="left"
-        android:text="-12 C"
         android:textColor="@color/color_white"
         android:textSize="@dimen/med_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtLowTempText"
@@ -102,7 +100,7 @@
         android:text="@string/low_temp"
         android:textColor="@color/color_white"
         android:textSize="@dimen/med_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtLowTempValue"
@@ -114,10 +112,9 @@
         android:layout_below="@id/txtHighTempValue"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:gravity="left"
-        android:text="-123 C"
         android:textColor="@color/color_white"
         android:textSize="@dimen/med_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtWeatherStatusText"
@@ -129,7 +126,7 @@
         android:text="@string/weather_status"
         android:textColor="@color/color_white"
         android:textSize="@dimen/med_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtWeatherStatusValue"
@@ -141,10 +138,9 @@
         android:layout_below="@id/txtLowTempValue"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:gravity="left"
-        android:text="Sunny"
         android:textColor="@color/color_white"
         android:textSize="@dimen/med_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtSunriseText"
@@ -156,7 +152,7 @@
         android:text="@string/sunrise"
         android:textColor="@color/color_white"
         android:textSize="@dimen/med_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtSunriseValue"
@@ -168,10 +164,9 @@
         android:layout_below="@id/txtWeatherStatusValue"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:gravity="left"
-        android:text="11:50 UTC"
         android:textColor="@color/color_white"
         android:textSize="@dimen/med_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtSunsetText"
@@ -183,7 +178,7 @@
         android:text="@string/sunset"
         android:textColor="@color/color_white"
         android:textSize="@dimen/med_text_size"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txtSunsetValue"
@@ -194,10 +189,8 @@
         android:layout_below="@id/txtSunriseValue"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:gravity="left"
-        android:text="23:33 UTC"
         android:textColor="@color/color_white"
         android:textSize="@dimen/med_text_size"
-        android:visibility="visible" 
-        />
+        android:visibility="gone" />
 
 </RelativeLayout>

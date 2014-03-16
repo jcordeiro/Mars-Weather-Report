@@ -11,24 +11,18 @@ import de.neofonie.mobile.app.android.widget.crouton.Style;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.res.Configuration;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-//TODO: Adjust layout to work on all screen sizes (multiple dimens.xml files?)
-//TODO: Add refresh functionality & edit Crouton to alert user about refresh (by swiping down?)
 //TODO: Add SettingsActivity (Celsius vs. Fahrenheit) (Don't forget ActionBar Up) (UIListView?)
 //TODO: Add about dialog. Possibly about and link to site in settings?
 //TODO: Possible way to check for updates on API? Push Notifications? (Later versions)
-//TODO: TEST ON OTHER DEVICES!! LOW CONNECTIVITY (emulator?)
 //TODO: Search for what next
 //TODO: Finalize image sizes for backgrounds
 //TODO: SHRINK IMAGES SIZES - PNGCRUSH!!!!!!
+//TODO: Finalize ic_launcher sizes
 //TODO: Add analytics
 //TODO: Remove debug logs
 //TODO: Look for Android checklist before Google Play submission
