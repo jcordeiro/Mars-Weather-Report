@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="Temperature" >
+        <ListPreference
+            android:defaultValue="\u2103"
+            android:dialogTitle="@string/temp_units"
+            android:entries="@array/temperature_units_entries"
+            android:entryValues="@array/temperature_units_values"
+            android:key="tempUnits"
+            android:summary="@string/temp_units_summary"
+            android:title="@string/units" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="About" >
+        <Preference
+            android:key="about"
+            android:summary="@string/support_feedback"
+            android:title="@string/built_by" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="mailto:contact@joncordeiro.com?subject=MarsWeatherReport" />
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>
