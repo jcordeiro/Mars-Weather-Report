@@ -24,9 +24,6 @@ import android.widget.TextView;
 //TODO: Add analytics **********************************
 //TODO: Remove debug logs
 
-
-//TODO: Ask user to rate app?
-
 //TODO: Obfuscate code?
 
 //TODO: Look for Android checklist before Google Play submission
@@ -55,6 +52,8 @@ public class MarsWeatherActivity extends Activity implements OnSharedPreferenceC
 		// pass it in as the view to fetch a weather report
 		Button btnRetry = (Button)findViewById(R.id.btnRetry);
 		fetchWeatherReport(btnRetry);
+		
+		AppRater.app_launched(this);
 	}
 
 	// Attempts to get the latest mars weather reading
