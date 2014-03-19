@@ -6,6 +6,8 @@
 
     <!--  Needed to connect to MAAS API and get the weather data -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--  Required for Google Analytics -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-sdk
         android:minSdkVersion="8"
