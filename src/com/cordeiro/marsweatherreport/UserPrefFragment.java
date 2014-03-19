@@ -1,5 +1,4 @@
-package com.cordeirolabs.weatherofmars;
-import com.cordeirolabs.weatherofmars.R;
+package com.cordeiro.marsweatherreport;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

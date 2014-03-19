@@ -1,4 +1,4 @@
-package com.cordeirolabs.weatherofmars;
+package com.cordeiro.marsweatherreport;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;

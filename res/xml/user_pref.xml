@@ -14,8 +14,15 @@
     <PreferenceCategory android:title="About" >
         <Preference
             android:key="about"
-            android:summary="@string/support_feedback"
             android:title="@string/built_by" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://www.joncordeiro.com" />
+        </Preference>
+        <Preference
+            android:key="about"
+            android:summary="@string/email_developer"
+            android:title="@string/support_feedback" >
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="mailto:contact@joncordeiro.com?subject=MarsWeatherReport" />

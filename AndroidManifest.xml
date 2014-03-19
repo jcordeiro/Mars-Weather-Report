@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cordeirolabs.weatherofmars"
+    package="com.cordeiro.marsweatherreport"
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <!--  Needed to connect to MAAS API and get the weather data -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-sdk
@@ -16,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.cordeirolabs.weatherofmars.MarsWeatherActivity"
+            android:name="com.cordeiro.marsweatherreport.MarsWeatherActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,11 +26,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cordeirolabs.weatherofmars.PreApi11UserPrefActivity"
+            android:name="com.cordeiro.marsweatherreport.PreApi11UserPrefActivity"
             android:label="@string/settings" >
         </activity>
         <activity
-            android:name="com.cordeirolabs.weatherofmars.UserPrefActivity"
+            android:name="com.cordeiro.marsweatherreport.UserPrefActivity"
             android:label="@string/settings" >
         </activity>
     </application>

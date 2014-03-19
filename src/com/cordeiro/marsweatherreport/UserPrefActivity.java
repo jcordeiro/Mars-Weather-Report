@@ -1,4 +1,5 @@
-package com.cordeirolabs.weatherofmars;
+package com.cordeiro.marsweatherreport;
+
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;

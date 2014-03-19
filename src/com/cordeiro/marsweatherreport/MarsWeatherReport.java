@@ -1,4 +1,4 @@
-package com.cordeirolabs.weatherofmars;
+package com.cordeiro.marsweatherreport;
 
 import java.util.ArrayList;
 
