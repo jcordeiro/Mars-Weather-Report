@@ -14,11 +14,11 @@ public class UserPrefActivity extends PreferenceActivity {
 		// Set content view to be xml layout with fragment element
 		setContentView(R.layout.pref_activity_user_pref);
 	}
-	
+
 	@Override
 	protected void onStart() {
 		super.onStart();
-		
+
 		// Google Analytics
 		EasyTracker.getInstance(this).activityStart(this);
 	}
@@ -26,7 +26,7 @@ public class UserPrefActivity extends PreferenceActivity {
 	@Override
 	protected void onStop() {
 		super.onStop();
-		
+
 		// Google Analytics
 		EasyTracker.getInstance(this).activityStop(this);
 	}

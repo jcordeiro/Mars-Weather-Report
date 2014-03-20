@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
     <RelativeLayout
         android:id="@+id/container"
@@ -11,22 +10,23 @@
         android:layout_gravity="bottom"
         android:background="#aa000000"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingRight="10dp" >
 
         <TextView
+            android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/close"
             android:gravity="center_vertical"
-            android:id="@+id/text"
-            android:textColor="@android:color/white"
-            android:layout_toLeftOf="@+id/close"/>
+            android:textColor="@android:color/white" />
 
         <ImageView
             android:id="@+id/close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:src="@drawable/ic_action_remove"/>
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_remove" />
     </RelativeLayout>
+
 </FrameLayout>

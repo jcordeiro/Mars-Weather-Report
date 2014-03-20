@@ -21,15 +21,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
-//TODO: Add analytics **********************************
-//TODO: Remove debug logs
-
-//TODO: Obfuscate code?
-
-//TODO: Look for Android checklist before Google Play submission
-//TODO: Get assets for Goole Play Store
-
 public class MarsWeatherActivity extends Activity implements OnSharedPreferenceChangeListener {
 	private MarsWeatherClient client;
 
@@ -53,7 +44,7 @@ public class MarsWeatherActivity extends Activity implements OnSharedPreferenceC
 		// pass it in as the view to fetch a weather report
 		Button btnRetry = (Button)findViewById(R.id.btnRetry);
 		fetchWeatherReport(btnRetry);
-		
+
 		AppRater.app_launched(this);
 	}
 
@@ -133,10 +124,10 @@ public class MarsWeatherActivity extends Activity implements OnSharedPreferenceC
 		//		int averageTemp = (report.getMaxCelsiusTemp() + report.getMinCelsiusTemp()) / 2;
 
 		// Update the UI with the values from the MarsWeatherReport
-//		txtLastUpdatedText.append(" " + report.getEarthDate());
-		
+		//		txtLastUpdatedText.append(" " + report.getEarthDate());
+
 		txtLastUpdatedText.setText(getResources().getString(R.string.last_updated_at) + " " + report.getEarthDate());
-		
+
 		txtWeatherStatusValue.setText(report.getWeatherStatus());
 		txtSunriseValue.setText(report.getSunrise());
 		txtSunsetValue.setText(report.getSunset());
@@ -197,19 +188,12 @@ public class MarsWeatherActivity extends Activity implements OnSharedPreferenceC
 
 
 		return super.onMenuItemSelected(featureId, item);
-
-
-
-
-
-
-
 	}
 
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
-		
+
 		// If the user has changed their preference for the temperature units
 		// we need to fetch the weather data again
 		if (key.equals(TEMP_UNITS)) {
@@ -221,7 +205,7 @@ public class MarsWeatherActivity extends Activity implements OnSharedPreferenceC
 	@Override
 	protected void onStart() {
 		super.onStart();
-		
+
 		// Google Analytics
 		EasyTracker.getInstance(this).activityStart(this);
 	}
@@ -229,11 +213,11 @@ public class MarsWeatherActivity extends Activity implements OnSharedPreferenceC
 	@Override
 	protected void onStop() {
 		super.onStop();
-		
+
 		// Google Analytics
 		EasyTracker.getInstance(this).activityStop(this);
 	}
-	
-	
+
+
 
 }

@@ -66,7 +66,7 @@ public class MarsWeatherReport {
 		// Return new MarsWeatherReport
 		return report;
 	}
-	
+
 	// The json call for the mars weather data returns time in a format like this "2014-03-07T11:30:00Z"
 	// This method splits the time String by the "T" and returns just the actual time
 	// The trailing "z" and seconds are removed and "UTC" (Coordinated Universal Time) is appended

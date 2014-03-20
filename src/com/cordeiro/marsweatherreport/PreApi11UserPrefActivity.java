@@ -15,11 +15,11 @@ public class PreApi11UserPrefActivity extends PreferenceActivity {
 
 		addPreferencesFromResource(R.xml.user_pref);
 	}
-	
+
 	@Override
 	protected void onStart() {
 		super.onStart();
-		
+
 		// Google Analytics
 		EasyTracker.getInstance(this).activityStart(this);
 	}
@@ -27,7 +27,7 @@ public class PreApi11UserPrefActivity extends PreferenceActivity {
 	@Override
 	protected void onStop() {
 		super.onStop();
-		
+
 		// Google Analytics
 		EasyTracker.getInstance(this).activityStop(this);
 	}
