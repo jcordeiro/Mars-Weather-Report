@@ -26,6 +26,8 @@ public class MarsWeatherActivity extends Activity implements OnSharedPreferenceC
 
 	final String CELSIUS = "\u2103";
 	final String FAHRENHEIT = "\u2109";
+	final String KELVIN = "\u212A";
+	final double KELVIN_CONVERSION = 273.15;
 	final String TEMP_UNITS = "tempUnits";
 
 	@Override
@@ -112,19 +114,19 @@ public class MarsWeatherActivity extends Activity implements OnSharedPreferenceC
 			txtHighTempValue.setText(report.getMaxCelsiusTemp() + CELSIUS);
 			txtLowTempValue.setText(report.getMinCelsiusTemp() + CELSIUS);
 		}
-		else {
+		else if (units.equals(FAHRENHEIT)) {
 			int averageTemp = (report.getMaxFahrenheitTemp() + report.getMinFahrenheitTemp()) / 2;
 			txtCurrentTemperature.setText(averageTemp + FAHRENHEIT);
 			txtHighTempValue.setText(report.getMaxFahrenheitTemp() + FAHRENHEIT);
 			txtLowTempValue.setText(report.getMinFahrenheitTemp() + FAHRENHEIT);
 		}
-
-		// Calculate the average temperate from the weather reading
-		// The middle point between the day's low and high temperatures
-		//		int averageTemp = (report.getMaxCelsiusTemp() + report.getMinCelsiusTemp()) / 2;
-
-		// Update the UI with the values from the MarsWeatherReport
-		//		txtLastUpdatedText.append(" " + report.getEarthDate());
+		else { // KELVIN
+			double averageTemp = (convertCelsiusToKelvin(report.getMaxCelsiusTemp()) + 
+					convertCelsiusToKelvin(report.getMinCelsiusTemp())) / 2;
+			txtCurrentTemperature.setText(String.format("%.2f %s", averageTemp, KELVIN));
+			txtHighTempValue.setText(String.format("%.2f %s", convertCelsiusToKelvin(report.getMaxCelsiusTemp()), KELVIN));
+			txtLowTempValue.setText(String.format("%.2f %s", convertCelsiusToKelvin(report.getMinCelsiusTemp()), KELVIN));
+		}
 
 		txtLastUpdatedText.setText(getResources().getString(R.string.last_updated_at) + " " + report.getEarthDate());
 
@@ -132,6 +134,11 @@ public class MarsWeatherActivity extends Activity implements OnSharedPreferenceC
 		txtSunriseValue.setText(report.getSunrise());
 		txtSunsetValue.setText(report.getSunset());
 
+	}
+	
+	// Take a Celsius temperature and return it converted to Kelvin
+	public double convertCelsiusToKelvin(double temp) {
+		return temp + KELVIN_CONVERSION;
 	}
 
 	@Override

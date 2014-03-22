@@ -26,7 +26,7 @@
     </style>
 
     <string name="units">Units</string>
-    <string name="temp_units_summary">Celsius or Fahrenheit</string>
+    <string name="temp_units_summary">Celsius, Fahrenheit, or Kelvin</string>
     <string name="built_by">Built by Jon Cordeiro</string>
     <string name="temp_units">Temperature Units</string>
     <string name="support_feedback">Support and feedback</string>
@@ -35,10 +35,12 @@
     <string-array name="temperature_units_entries">
         <item>Celsius</item>
         <item>Fahrenheit</item>
+        <item>Kelvin</item>
     </string-array>
     <string-array name="temperature_units_values">
         <item>\u2103</item>
         <item>\u2109</item>
+        <item>\u212A</item>
     </string-array>
 
 </resources>
