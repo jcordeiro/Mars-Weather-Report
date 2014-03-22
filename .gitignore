@@ -2,6 +2,9 @@
 *.apk
 *.ap_
 
+# Play Store Assets
+assets/*
+
 # Files for the Dalvik VM
 *.dex
 
