@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string name="app_name">Mars Weather Report</string>
+    <string name="action_settings">Settings</string>
+    <string name="retry">Retry</string>
+    <string name="latest_weather">The latest weather reading from Mars is:</string>
+    <string name="earth_date">Earth date: </string>
+    <string name="earth_time">Earth time</string>
+    <string name="high_temp">High temperature:</string>
+    <string name="low_temp">Low temperature:</string>
+    <string name="weather_status">Weather status:</string>
+    <string name="sunrise">Sunrise:</string>
+    <string name="sunset">Sunset:</string>
+    <string name="error">There was a problem getting the weather data</string>
+    <string name="settings">Settings</string>
+
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+
+    <style name="text_shadow">
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1.5</item>
+        <item name="android:shadowDy">1.5</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+    <string name="units">Units</string>
+    <string name="temp_units_summary">Celsius, Fahrenheit, or Kelvin</string>
+    <string name="built_by">Built by Jon Cordeiro</string>
+    <string name="temp_units">Temperature Units</string>
+    <string name="support_feedback">Support and feedback</string>
+    <string name="email_developer">Email developer</string>
+
+    <string-array name="temperature_units_entries">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
+    </string-array>
+    <string-array name="temperature_units_values">
+        <item>\u2103</item>
+        <item>\u2109</item>
+        <item>\u212A</item>
+    </string-array>
+
+</resources>
